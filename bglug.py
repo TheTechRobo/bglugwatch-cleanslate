@@ -176,7 +176,7 @@ Multiple accts? |   yes    |     yes        |  yes       |   yes
 Filter criteria |  headers |    header/body | header/body|   header/body/
                                                              attach/size/
                                                              regex
-                                                             
+
 (does/does not) | contain  |   contain/is/  |contain     |   contain/is/
                     regex  |      begin/end |  regex     |      begin/end
 
@@ -200,7 +200,20 @@ Message Labels?  | no      |    yes,5       | no        |    no, but flag
 HTML email?      | no      |    optional    | no        |    optional
 External actions?| yes     |    no          | filter    |    no
 '''
-    Label(specs, text=text2Print, font=("Courier", 10)).pack()
+    #SOURCE: https://stackoverflow.com/questions/50625306/whats-the-best-way-to-show-data-which-should-be-in-a-table-using-tkinter-python and https://stackoverflow.com/questions/47515014/how-do-i-use-tkinter-treeview-to-list-items-in-a-table-of-a-database
+    #Create table
+    tree = ttk.Treeview(specs)
+    # set up the columns and headings
+    # In reality "Member ID" would be exported from the database
+    tree["columns"] = ["Email client", "Sylpheed", "Mozilla", "Balsa", "Evolution"]
+    tree["show"] = "headings"
+    tree.heading("Email client", text="Email client")
+    tree.heading("Sylpheed", text="Sylpheed")
+    tree.heading("Mozilla", text="Mozilla")
+    tree.heading("Balsa", text="Balsa")
+    tree.heading("Evolution", text="Evolution")
+    tree.pack()
+    tree.insert("", 800000, values=("Multiple accounts?", "yes", "yes", "yes", "yes"))
     Button(specs, text="OK", command=specs.destroy).pack()
 def article1():
     article1 = Toplevel()
@@ -264,11 +277,11 @@ ttk.Label(TAB3, text="Newest Mail on the Mailing List").pack()
 ttk.Label(TAB3, text='''FROM: LP
 SUBJECT: All LUG Meetings are Cancelled until further notice !
 "I just got the word..."''').pack()
-ttk.Button(TAB3, text="Read", command=ShowMessageOne).pack()
+ttk.Button(TAB3, text="Read", command=showMessageTwo).pack()
 ttk.Label(TAB3, text='''FROM: LP
 SUBJECT: I hope everyone is well!
 "Hi all,..."''').pack()
-ttk.Button(TAB3, text="Read", command=showMessageTwo).pack()
+ttk.Button(TAB3, text="Read", command=ShowMessageOne).pack()
 ttk.Label(TAB3, text='''
 For messages direct to your mailbox, go to http://bglug.ca/mailman/listinfo/group_bglug.ca and sign
 up for the mailing list!''').pack()
