@@ -165,46 +165,9 @@ def abtlin():
 def showspec1():
     specs = Toplevel()
     specs.title("Truncated specs")
-    mylist = clist(specs)
-    def insert(string):
-        mylist.insert(END, string)
-    text2Print = '''
-Email Program   | Sylpheed |   Mozilla      | Balsa      |  Evolution
-------------------------------------------------------------------------
-Multiple accts? |   yes    |     yes        |  yes       |   yes
-
-Filter criteria |  headers |    header/body | header/body|   header/body/
-                                                             attach/size/
-                                                             regex
-
-(does/does not) | contain  |   contain/is/  |contain     |   contain/is/
-                    regex  |      begin/end |  regex     |      begin/end
-
-Multiple filters?| 2 and/or|   N and/or     |N and/or     |N and/or
-Filter actions   |move/delete| move/delete/|  move/delete/|  move/delete/
-                                  flag/label|  pgm'd actn.|  color
-Import:
-  Eudora mailbox?|  yes    |     yes        |  yes      |     yes
-  Eudora addr's? |  no     |     yes        |  ?        |     ?
-  Eudora filters?|  no     |     ?          |  ?        |     ?
-
-PGP support?     | yes     |    yes         | ?         |    yes
-Attachments?     | yes     |    yes         | yes       |    yes
-Return receipts? | no      |    yes         | yes       |    no
-BCC?             | yes     |    yes         | yes       |    yes
-Msg size limit?  | yes     |    yes         | no        |    no
-Signature files? | one     |    one per acct| multiple  |    one per acct.
-Address books?   | multiple|    multiple    | multiple  |    multiple
-Message Labels?  | no      |    yes,5       | no        |    no, but flag
-
-HTML email?      | no      |    optional    | no        |    optional
-External actions?| yes     |    no          | filter    |    no
-'''
     #SOURCE: https://stackoverflow.com/questions/50625306/whats-the-best-way-to-show-data-which-should-be-in-a-table-using-tkinter-python and https://stackoverflow.com/questions/47515014/how-do-i-use-tkinter-treeview-to-list-items-in-a-table-of-a-database
     #Create table
     tree = ttk.Treeview(specs)
-    # set up the columns and headings
-    # In reality "Member ID" would be exported from the database
     tree["columns"] = ["Email client", "Sylpheed", "Mozilla", "Balsa", "Evolution"]
     tree["show"] = "headings"
     tree.heading("Email client", text="Email client")
@@ -214,6 +177,23 @@ External actions?| yes     |    no          | filter    |    no
     tree.heading("Evolution", text="Evolution")
     tree.pack()
     tree.insert("", 800000, values=("Multiple accounts?", "yes", "yes", "yes", "yes"))
+    tree.insert("", 800000, values=("Filter criteria", "headers", "headers / body", "headers / body", "header/body/attach/size/regex"))
+    tree.insert("", 800000, values=("(does/does not)", "contain regex", "contain/is/begin/end", "contain regex", "contain/is/begin/end"))
+    tree.insert("", 800000, values=("Multiple filters?", "2 and/or", "N and/or", "N and/or", "N and/or"))
+    tree.insert("", 800000, values=("Filter actions", "Move/delete", "move/delete/flag/label", "move/delete/programmed action", "move/delete/colour"))
+    tree.insert("", 800000, values=("Import Eudora mailbox?", "yes", "yes", "yes", "yes"))
+    tree.insert("", 800000, values=("Import Eudora addresses?", "no", "yes", "?", "?"))
+    tree.insert("", 800000, values=("Import Eudora filters?", "no", "?", "?", "?"))
+    tree.insert("", 800000, values=("PGP?", "yes", "yes", "?", "yes"))
+    tree.insert("", 800000, values=("Attachments?", "yes", "yes", "yes", "yes"))
+    tree.insert("", 800000, values=("Return receipts?", "no", "yes", "yes", "no"))
+    tree.insert("", 800000, values=("BCC?", "yes", "yes", "yes", "yes"))
+    tree.insert("", 800000, values=("Message size limit?", "yes", "yes", "no", "no"))
+    tree.insert("", 800000, values=("Signature files?", "one", "one per account", "multiple", "one per account"))
+    tree.insert("", 800000, values=("Address books?", "multiple", "multiple", "multiple", "multiple"))
+    tree.insert("", 800000, values=("Message labels?", "no", "yes (5)", "no", "no, but can flag messages (equiv. to one label)"))
+    tree.insert("", 800000, values=("HTML email?", "no", "optional", "no", "optional"))
+    tree.insert("", 800000, values=("External actions?", "yes", "no", "filter", "no"))
     Button(specs, text="OK", command=specs.destroy).pack()
 def article1():
     article1 = Toplevel()
