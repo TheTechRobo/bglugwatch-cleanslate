@@ -248,7 +248,7 @@ def article2():
         mylist.insert(END, string)
     insert("...")
     mylist.pack(fill=BOTH)
-    Button(article1, text="OK", command=article1.destroy).pack()
+    Button(article2, text="OK", command=article2.destroy).pack()
 def Articles():
     articles = Toplevel()
     articles.title('Articles')
