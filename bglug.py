@@ -199,7 +199,7 @@ HTML email?      | no      |    optional    | no       |    optional
 External actions?| yes     |    no          | filter   |    no
 '''
     Label(specs, text=text2Print, font=("Courier", 15)).pack()
-    Button(specs, text="OK", command=specs.destroy)
+    Button(specs, text="OK", command=specs.destroy).pack()
 def article1():
     article1 = Toplevel()
     article1.title("Choosing a suitable email client")
@@ -210,7 +210,7 @@ def article1():
     insert("possibles, based upon the rather modest requirements that the client support multiple email accounts and")
     insert("have some filtering capabilities. So I installed all four, and I started looking at them, keeping in mind the")
     insert("features of Eudora that I use every day or really like. ")
-    #Button(article1, text="View truncated spec list", command=showspec1).pack()
+    Button(article1, text="View truncated spec list", command=showspec1).pack()
     insert("==================================COMMENTARY========================================================")
     insert("")
     insert("Evolution has the most flexible filtering -- except that Balsa allows the use of an external program as a")
@@ -239,6 +239,7 @@ def article1():
     insert("someone brings out Eudora for Linux, it's a price I'm willing to pay.")
     mylist.pack(fill=BOTH)
     Button(article1, text="OK", command=article1.destroy).pack()
+    article1.minsize(755, 755)
 def article2():
     article2 = Toplevel()
     article2.title("Win4Lin review")
