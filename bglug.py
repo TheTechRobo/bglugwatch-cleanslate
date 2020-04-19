@@ -18,8 +18,8 @@ main.title("BGLUGwatch")
 # DECLARING
 def uc(): #source stackoverflow.com/questions/4760215/running-shell-command-and-capturing-the-output/9266901#9266901
     msg.showinfo("Attempting to update...", "Please wait while git does its job.")
-    output = subprocess.Popen(["git pull"],stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
-    response = output.communicate()
+    output = subprocess.Popen(["git pull"],stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True) #Prepare the git pull
+    response = output.communicate() #run git pull and get the output
     if response == (b'Already up to date.\n', None):
         print("Already up to date.")
         msg.showinfo("Already up to date.", "You can use BGLUGwatch freely!")
@@ -38,17 +38,17 @@ def uc(): #source stackoverflow.com/questions/4760215/running-shell-command-and-
     else:
         msg.showinfo("Updated!", "BGLUGwatch will now exit, please restart it.")
         exit()
-def clist(winname):
+def clist(winname): #create list & scrollbar
     scrollbar = Scrollbar(winname) #add scrollbar
     scrollbar.pack(side=RIGHT, fill=Y) #pack scrollbar
     mylist = Listbox(winname, yscrollcommand=scrollbar.set)#create list
-    return mylist
+    return mylist #return list
 def hello():
     win = Toplevel()
     win.title('About BGLUG and the program')
     # create child window
     # display message
-    mylist = clist(win)
+    mylist = clist(win) #create list & scrollbar
     def insert(string):
         mylist.insert(END, string)
     insert("The Bruce Grey Linux Users Group (BGLUG) was founded in 2000 to bring local Linux users together and to help newcomers to Linux.")
@@ -169,7 +169,7 @@ def showspec1():
     def insert(string):
         mylist.insert(END, string)
     text2Print = '''
-Email Program   | Sylpheed |   Mozilla       Balsa         Evolution
+Email Program   | Sylpheed |   Mozilla      | Balsa      |  Evolution
 ------------------------------------------------------------------------
 Multiple accts? |   yes    |     yes        |  yes       |   yes
 
@@ -177,28 +177,28 @@ Filter criteria |  headers |    header/body | header/body|   header/body/
                                                              attach/size/
                                                              regex
                                                              
-(does/does not) | contain  |   contain/is/  |contain   |   contain/is/
-                    regex  |      begin/end |  regex   |      begin/end
+(does/does not) | contain  |   contain/is/  |contain     |   contain/is/
+                    regex  |      begin/end |  regex     |      begin/end
 
-Multiple filters?  2 and/or|   N and/or     |N and/or      |N and/or
-Filter actions     move/delete| move/delete/|  move/delete/|  move/delete/
-                                  flag/label|   pgm'd actn.|  color
+Multiple filters?| 2 and/or|   N and/or     |N and/or     |N and/or
+Filter actions   |move/delete| move/delete/|  move/delete/|  move/delete/
+                                  flag/label|  pgm'd actn.|  color
 Import:
-  Eudora mailbox?|  yes    |     yes        |  yes     |     yes
-  Eudora addr's? |  no     |     yes        |  ?       |     ?
-  Eudora filters?|  no     |     ?          |  ?       |     ?
+  Eudora mailbox?|  yes    |     yes        |  yes      |     yes
+  Eudora addr's? |  no     |     yes        |  ?        |     ?
+  Eudora filters?|  no     |     ?          |  ?        |     ?
 
-PGP support?     | yes     |    yes         | ?        |    yes
-Attachments?     | yes     |    yes         | yes      |    yes
-Return receipts? | no      |    yes         | yes      |    no
-BCC?             | yes     |    yes         | yes      |    yes
-Msg size limit?  | yes     |    yes         | no       |    no
-Signature files? | one     |    one per acct| multiple |    one per acct.
-Address books?   | multiple|    multiple    | multiple |    multiple
-Message Labels?  | no      |    yes,5       | no       |    no, but flag
+PGP support?     | yes     |    yes         | ?         |    yes
+Attachments?     | yes     |    yes         | yes       |    yes
+Return receipts? | no      |    yes         | yes       |    no
+BCC?             | yes     |    yes         | yes       |    yes
+Msg size limit?  | yes     |    yes         | no        |    no
+Signature files? | one     |    one per acct| multiple  |    one per acct.
+Address books?   | multiple|    multiple    | multiple  |    multiple
+Message Labels?  | no      |    yes,5       | no        |    no, but flag
 
-HTML email?      | no      |    optional    | no       |    optional
-External actions?| yes     |    no          | filter   |    no
+HTML email?      | no      |    optional    | no        |    optional
+External actions?| yes     |    no          | filter    |    no
 '''
     Label(specs, text=text2Print, font=("Courier", 15)).pack()
     Button(specs, text="OK", command=specs.destroy).pack()
