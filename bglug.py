@@ -123,7 +123,7 @@ def subshelp():
     win.title('Under Construction')
     Label(win, text="Under construction").pack()
 def contrib():
-    webbrowser.open("https://github.com/thetechrobo/bglugwatch", new=1) # SOURCE: gist.github.com/RandomResourceWeb/93e887facdb98937ab5d260d1a0df270
+    webbrowser.open("https://github.com/thetechrobo/bglugwatch-cleanslate", new=1) # SOURCE: gist.github.com/RandomResourceWeb/93e887facdb98937ab5d260d1a0df270
 # Tabs (source www.djangocentral.com/creating-tabbed-widget-with-python-for-gui-application/)
 #Create Tab Control
 TAB_CONTROL = ttk.Notebook(main)
@@ -160,6 +160,46 @@ def abtlin():
     thousands of volunteer developers around the world. It is distributed under the GNU General Public License which means the source code is
     freely available to everyone. Linux has powered much of the Internet for years, and is now available with many applications for "desktop" computer users.'''
     ttk.Label(abtlin, text=linux).pack()
+def showspec1():
+    specs = Toplevel()
+    specs.title("Truncated specs")
+    mylist = clist(specs)
+    def insert(string):
+        mylist.insert(END, string)
+    text2Print = '''
+Email Program   | Sylpheed |   Mozilla       Balsa         Evolution
+------------------------------------------------------------------------
+Multiple accts? |   yes    |     yes        |  yes       |   yes
+
+Filter criteria |  headers |    header/body | header/body|   header/body/
+                                                             attach/size/
+                                                             regex
+                                                             
+(does/does not) | contain  |   contain/is/  |contain   |   contain/is/
+                    regex  |      begin/end |  regex   |      begin/end
+
+Multiple filters?  2 and/or|   N and/or     |N and/or      |N and/or
+Filter actions     move/delete| move/delete/|  move/delete/|  move/delete/
+                                  flag/label|   pgm'd actn.|  color
+Import:
+  Eudora mailbox?|  yes    |     yes        |  yes     |     yes
+  Eudora addr's? |  no     |     yes        |  ?       |     ?
+  Eudora filters?|  no     |     ?          |  ?       |     ?
+
+PGP support?     | yes     |    yes         | ?        |    yes
+Attachments?     | yes     |    yes         | yes      |    yes
+Return receipts? | no      |    yes         | yes      |    no
+BCC?             | yes     |    yes         | yes      |    yes
+Msg size limit?  | yes     |    yes         | no       |    no
+Signature files? | one     |    one per acct| multiple |    one per acct.
+Address books?   | multiple|    multiple    | multiple |    multiple
+Message Labels?  | no      |    yes,5       | no       |    no, but flag
+
+HTML email?      | no      |    optional    | no       |    optional
+External actions?| yes     |    no          | filter   |    no
+'''
+    Label(specs, text=font=("Courier", 15)).pack()
+    Button(specs, text="OK", command=specs.destroy)
 def article1():
     article1 = Toplevel()
     article1.title("Choosing a suitable email client")
