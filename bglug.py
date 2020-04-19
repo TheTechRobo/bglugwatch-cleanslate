@@ -200,7 +200,7 @@ Message Labels?  | no      |    yes,5       | no        |    no, but flag
 HTML email?      | no      |    optional    | no        |    optional
 External actions?| yes     |    no          | filter    |    no
 '''
-    Label(specs, text=text2Print, font=("Courier", 15)).pack()
+    Label(specs, text=text2Print, font=("Courier", 10)).pack()
     Button(specs, text="OK", command=specs.destroy).pack()
 def article1():
     article1 = Toplevel()
