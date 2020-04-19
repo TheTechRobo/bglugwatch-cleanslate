@@ -239,7 +239,7 @@ def article1():
     insert("someone brings out Eudora for Linux, it's a price I'm willing to pay.")
     mylist.pack(fill=BOTH)
     Button(article1, text="OK", command=article1.destroy).pack()
-    article1.minsize(755, 755)
+    article1.minsize(755, 50)
 def article2():
     article2 = Toplevel()
     article2.title("Win4Lin review")
