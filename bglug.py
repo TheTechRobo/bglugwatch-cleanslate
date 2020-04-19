@@ -29,6 +29,8 @@ def uc(): #source stackoverflow.com/questions/4760215/running-shell-command-and-
     elif response == (b'Already up to date.\n', b''):
         print("Already up to date.")
         msg.showinfo("Already up to date.", "You can use BGLUGwatch freely!!")
+    elif response == (b'Already up-to-date.\n', b''):
+        msg.showinfo("Already up-to-date.", "You can use BGLUGwatch freely!")
     elif response == (b'', b'fatal: not a git repository (or any of the parent directories): .git\n'):
         msg.showerror("Error!", "There was an error updating BGLUGwatch.")
     elif response == (b'', b'fatal: not a git repository: .git\n'):
