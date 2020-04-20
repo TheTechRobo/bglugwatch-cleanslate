@@ -1,15 +1,9 @@
-# bglugwatch
-Tkinter program for easy viewing of BGLUG's website
+# How to translate?
+For the file you want to translate, create a file with the following layout:
+`<filename>.<langcode>.<extention>`
+So, if you were translating README.md to French (Canada), you would make the file like so:
+`README.fr-CA.md`
+Or, bglug.py to French (France):
+`bglug.fr-FR.py`
 
-# What is BGLUG?
-Bruce-Grey Linux User's Group is designed to help newcomers (and oldcomers) with Linux. We discuss things, give things away, and more!
-
-# Are there pre-built binaries?
-Go [here](https://github.com/thetechrobo/bglugwatch-binaries) for binaries. (They may be out of date.)  
-I used PyInstaller for building the binaries.
-## Links
-- [BGLUG website](http://bglug.ca)
-- [More info...](https://thetechrobo.github.io/drawer/bginfo.html)
-
-# BGLUGwatch is unfinished!
-I am still working on it, stay tuned!
+Then, PR your changes. (Try to finish the file, but if you can't, do as much as you can.)
