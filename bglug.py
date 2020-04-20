@@ -15,6 +15,8 @@ import webbrowser
 main = tkinter.Tk()
 menubar = Menu(main)
 main.title("BGLUGwatch")
+s = ttk.Style()
+s.theme_use('clam')
 # DECLARING
 def uc(): #source stackoverflow.com/questions/4760215/running-shell-command-and-capturing-the-output/9266901#9266901
     msg.showinfo("Attempting to update...", "Please wait while git does its job.")
@@ -72,7 +74,7 @@ def hello():
     mylist.pack(fill = BOTH)
     # quit child window and return to root window
     # the button is optional here, simply use the corner x of the child window
-    Button(win, text='OK', command=win.destroy).pack()
+    b = Button(win, text='OK', command=win.destroy).pack()
     win.minsize(1100, 100)
 def showMessageTwo(): #Message two
     print("Showing message two, if anyone's listening......")
