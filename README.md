@@ -6,4 +6,4 @@ So, if you were translating README.md to French (Canada), you would make the fil
 Or, bglug.py to French (France):
 `bglug.fr-FR.py`
 
-Then, PR your changes. (Try to finish the file, but if you can't, do as much as you can.)
+Then, PR your changes to the `translation` branch (this branch). (Try to finish the file, but if you can't, do as much as you can.)
