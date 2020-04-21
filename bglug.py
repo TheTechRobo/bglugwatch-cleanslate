@@ -223,7 +223,7 @@ def article2():
     mylist = clist(article2)
     def insert(string):
         mylist.insert(END, string)
-    insert("...")
+    insert("Under construction -- This will be completed in v.0.3-stable.")
     mylist.pack(fill=BOTH)
     Button(article2, text="OK", command=article2.destroy).pack()
 def Articles():
