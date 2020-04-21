@@ -19,6 +19,28 @@ main.title("BGLUGwatch")
 s = ttk.Style()
 s.theme_use('clam')
 # DECLARING
+def uc(): #source stackoverflow.com/questions/4760215/running-shell-command-and-capturing-the-output/9266901#9266901
+    msg.showinfo("Attempting to update...", "Please wait while git does its job.")
+    output = subprocess.Popen(["git pull"],stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True) #Prepare the git pull
+    response = output.communicate() #run git pull and get the output
+    if response == (b'Already up to date.\n', None):
+        print("Already up to date.")
+        msg.showinfo("Already up to date.", "You can use BGLUGwatch freely!")
+    elif response == (b'Already up-to-date.\n', None):
+        print("Already up-to-date.")
+        msg.showinfo("Already up to date.", "You can use BGLUGwatch freely!")
+    elif response == (b'Already up to date.\n', b''):
+        print("Already up to date.")
+        msg.showinfo("Already up to date.", "You can use BGLUGwatch freely!!")
+    elif response == (b'Already up-to-date.\n', b''):
+        msg.showinfo("Already up-to-date.", "You can use BGLUGwatch freely!")
+    elif response == (b'', b'fatal: not a git repository (or any of the parent directories): .git\n'):
+        msg.showerror("Error!", "There was an error updating BGLUGwatch.")
+    elif response == (b'', b'fatal: not a git repository: .git\n'):
+        msg.showerror("Error!", "There was an error updating BGLUGwatch.")
+    else:
+        msg.showinfo("Updated!", "BGLUGwatch will now exit, please restart it.")
+        exit()
 def clist(winname): #create list & scrollbar
     scrollbar = Scrollbar(winname) #add scrollbar
     scrollbar.pack(side=RIGHT, fill=Y) #pack scrollbar
@@ -119,6 +141,9 @@ TAB_CONTROL.add(TAB2, text='Articles')
 #Tab3
 TAB3 = ttk.Frame(TAB_CONTROL)
 TAB_CONTROL.add(TAB3, text='Mailing list')
+#TAB4
+TAB4 = ttk.Frame(TAB_CONTROL)
+TAB_CONTROL.add(TAB4, text='Update cache')
 TAB_CONTROL.pack(expand=1, fill="both")
 #For tab 1
 def moreinfomeeting():
@@ -247,6 +272,9 @@ ttk.Button(TAB3, text="Read", command=ShowMessageOne).pack()
 ttk.Label(TAB3, text='''
 For messages direct to your mailbox, go to http://bglug.ca/mailman/listinfo/group_bglug.ca and sign
 up for the mailing list!''').pack()
+#TAB4
+ttk.Button(TAB4, text="Update cache", command=uc).pack()
+ttk.Label(TAB4, text="This button will update the cache of BGLUGwatch. It's helpful if you aren't using the snap-store,\nbut otherwise there is no point whatsoever.\nIf you don't have git installed, this will fail. So please, make sure git is installed.").pack()
 # MENUBAR
 # create a pulldown menu, and add it to the menu bar
 filemenu = Menu(menubar, tearoff=0)
@@ -263,6 +291,7 @@ viewmnu.add_separator()
 viewmnu.add_command(label="Exit BGLUGwatch", command=main.quit)
 menubar.add_cascade(label="View", menu=viewmnu)
 utilmnu = Menu(menubar, tearoff=0)
+utilmnu.add_command(label="Update BGLUGwatch", command=uc)
 utilmnu.add_command(label="Contribute!", command=contrib)
 utilmnu.add_separator()
 utilmnu.add_command(label="Exit BGLUGwatch", command=main.quit)
@@ -270,5 +299,6 @@ menubar.add_cascade(label="Utilities", menu=utilmnu)
 # display the menu
 main.config(menu=menubar)
 # show message on launch
+uc()
 msg.showerror("No meeting in April, don't even try.", "There is no meeting in April due to the COVID-19 pandemic, staying safe is more important than computers!")
 main.mainloop()
