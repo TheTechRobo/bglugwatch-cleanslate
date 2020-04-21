@@ -45,7 +45,7 @@ def clist(winname): #create list & scrollbar
     scrollbar = Scrollbar(winname) #add scrollbar
     scrollbar.pack(side=RIGHT, fill=Y) #pack scrollbar
     mylist = Listbox(winname, yscrollcommand=scrollbar.set)#create list
-    return mylist #return list
+    return mylist #return list and scrollbar
 def hello():
     win = Toplevel()
     win.title('About BGLUG and the program')
@@ -167,10 +167,12 @@ def abtlin():
     ttk.Label(abtlin, text=linux).pack()
 def showspec1():
     specs = Toplevel()
-    specs.title("Truncated specs")
+    specs.title("Truncated specs (scroll for more)")
     #SOURCE: https://stackoverflow.com/questions/50625306/whats-the-best-way-to-show-data-which-should-be-in-a-table-using-tkinter-python and https://stackoverflow.com/questions/47515014/how-do-i-use-tkinter-treeview-to-list-items-in-a-table-of-a-database
     #Create table
-    tree = ttk.Treeview(specs)
+    scrollbar = Scrollbar(specs) #add scrollbar
+    scrollbar.pack(side=RIGHT, fill=Y) #pack scrollbar
+    tree = ttk.Treeview(specs, yscrollcommand=scrollbar.set)
     tree["columns"] = ["Email client", "Sylpheed", "Mozilla", "Balsa", "Evolution"]
     tree["show"] = "headings"
     tree.heading("Email client", text="Email client")
@@ -182,10 +184,10 @@ def showspec1():
         tree.insert("", 99, values=stuffs)
     tree.pack()
     ins(("Multiple accounts?", "yes", "yes", "yes", "yes"))
-    ins(("Filter criteria", "headers", "headers / body", "headers / body", "header/body/attach/size/regex"))
+    ins(("Filter criteria", "headers", "headers/body", "headers/body", "header/body/attach/size/regex"))
     ins(("(does/does not)", "contain regex", "contain/is/begin/end", "contain regex", "contain/is/begin/end"))
     ins(("Multiple filters?", "2 and/or", "N and/or", "N and/or", "N and/or"))
-    ins(("Filter actions", "Move/delete", "move/delete/flag/label", "move/delete/programmed action", "move/delete/colour"))
+    ins(("Filter actions", "Move/delete", "move/delete/flag/label", "move/delete/prog'md action", "move/delete/colour"))
     ins(("Import Eudora mailbox?", "yes", "yes", "yes", "yes"))
     ins(("Import Eudora addresses?", "no", "yes", "?", "?"))
     ins(("Import Eudora filters?", "no", "?", "?", "?"))
@@ -196,7 +198,7 @@ def showspec1():
     ins(("Message size limit?", "yes", "yes", "no", "no"))
     ins(("Signature files?", "one", "one per account", "multiple", "one per account"))
     ins(("Address books?", "multiple", "multiple", "multiple", "multiple"))
-    ins(("Message labels?", "no", "yes (5)", "no", "no, but can flag messages (equiv. to one label)"))
+    ins(("Message labels?", "no", "yes (5)", "no", "no, but can flag messages"))
     ins(("HTML email?", "no", "optional", "no", "optional"))
     ins(("External actions?", "yes", "no", "filter", "no"))
     Button(specs, text="OK", command=specs.destroy).pack()
