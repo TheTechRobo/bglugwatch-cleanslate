@@ -45,7 +45,7 @@ def clist(winname): #create list & scrollbar
     scrollbar = Scrollbar(winname) #add scrollbar
     scrollbar.pack(side=RIGHT, fill=Y) #pack scrollbar
     mylist = Listbox(winname, yscrollcommand=scrollbar.set)#create list
-    return mylist #return list and scrollbar
+    return mylist #return list
 def hello():
     win = Toplevel()
     win.title('About BGLUG and the program')
@@ -75,7 +75,7 @@ def hello():
     mylist.pack(fill = BOTH)
     # quit child window and return to root window
     # the button is optional here, simply use the corner x of the child window
-    b = Button(win, text='OK', command=win.destroy).pack()
+    Button(win, text='OK', command=win.destroy).pack()
     win.minsize(1100, 100)
 def showMessageTwo(): #Message two
     print("Showing message two, if anyone's listening......")
