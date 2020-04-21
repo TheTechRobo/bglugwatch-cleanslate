@@ -11,6 +11,7 @@ from tkinter import *
 import subprocess
 from sys import exit
 import webbrowser
+from tkinter.ttk import *
 # set up window
 main = tkinter.Tk()
 menubar = Menu(main)
