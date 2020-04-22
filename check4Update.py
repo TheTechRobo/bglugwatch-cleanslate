@@ -1,4 +1,6 @@
-import requests
+import requests, os
+
+os.remove("bglug.py")
 
 url = 'https://raw.githubusercontent.com/TheTechRobo/bglugwatch-cleanslate/master/bglug.py'
 
