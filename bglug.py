@@ -21,8 +21,9 @@ s.theme_use('clam')
 # DECLARING
 def uc(): #source stackoverflow.com/questions/4760215/running-shell-command-and-capturing-the-output/9266901#9266901
     msg.showinfo("Attempting to update...", "Please wait while git does its job.")
-    output = subprocess.Popen(["git pull"],stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True) #Prepare the git pull
-    response = output.communicate() #run git pull and get the output
+    #output = subprocess.Popen(["git pull"],stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True) #Prepare the git pull
+    #response = output.communicate() #run git pull and get the output
+    response = (b'Already up to date.\n', None)
     if response == (b'Already up to date.\n', None):
         print("Already up to date.")
         msg.showinfo("Already up to date.", "You can use BGLUGwatch freely!")
