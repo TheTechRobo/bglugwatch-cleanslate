@@ -2,6 +2,7 @@
 # copyright (c) 2019-2020 ittussarom retals mail ynohtna
 # BGLUGwatch is licensed under the GNU GPLv3 or later, a copyleft license.
 # copyleft states that it is illegal to switch to a different license without the explicit permission of TheTechRobo
+# you should have received a copy; else go to https://github.com/thetechrobo/bglugwatch-cleanslate/blob/master/LICENSE
 # END OF NOTICES
 # import necessary modules
 import tkinter
