@@ -151,13 +151,15 @@ TAB_CONTROL.pack(expand=1, fill="both")
 def moreinfomeeting():
     # create child window
     more = Toplevel()
-    more.title('No meeting in April')
+    more.title('Online Jitsi meeting 1st Tuesday of May')
     # display message
-    message = '''There is currently No Meeting in April due to the COVID-19 pandemic.
-    Stay safe!'''
+    message = '''The next BGLUG meeting has been proposed:
+    Meet on Jitsi (open-source video chat) at: https://meet.jit.si/bglug on: 1st Tuesday of May @ 7pm.
+    Topic: Features of Jitsi, presentations welcome! (Propose a presentation on the mailing list.)
+    See you there!'''
     Label(more, text=message).pack()
     Button(more, text="OK", command=more.destroy)
-ttk.Label(TAB1, text="(null)").pack()
+ttk.Label(TAB1, text="Meet on https://meet.jit.si/bglug 1st Tuesday of May @ 7pm").pack()
 ttk.Button(TAB1, text="More info...", command=moreinfomeeting).pack()
 #For tab 2
 def abtlin():
