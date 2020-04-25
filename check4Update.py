@@ -1,11 +1,11 @@
 # SOURCE: https://likegeeks.com/downloading-files-using-python/
 import requests, os
 
-os.remove("bglug.py")
+os.remove("bglug.py") #remove bglug.py
 
-url = 'https://raw.githubusercontent.com/TheTechRobo/bglugwatch-cleanslate/master/bglug.py'
+url = 'https://raw.githubusercontent.com/TheTechRobo/bglugwatch-cleanslate/master/bglug.py' #url to DL
 
-r = requests.get(url, stream = True)
+r = requests.get(url, stream = True) #DL the URL
 
 with open("bglug.py", "wb") as Pypdf:
 
@@ -13,4 +13,4 @@ with open("bglug.py", "wb") as Pypdf:
 
 		if chunk:
 
-			Pypdf.write(chunk)
+			Pypdf.write(chunk) #write 1KB(?) at a time
