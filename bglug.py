@@ -305,5 +305,5 @@ menubar.add_cascade(label="Utilities", menu=utilmnu)
 main.config(menu=menubar)
 # show message on launch
 uc()
-msg.showerror("No meeting in April, don't even try.", "There is no meeting in April due to the COVID-19 pandemic, staying safe is more important than computers!")
+msg.showinfo("Online meeting First Tuesday of May, 7pm", "There is a meeting this month, see more details by clicking `More info...' inside the `Next meeting' tab (the first one)")
 main.mainloop()
