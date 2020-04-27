@@ -1,4 +1,4 @@
-# bglugwatch v.0.2.10-stable
+# bglugwatch v.0.2.11-wip
 # copyright (c) 2019-2020 ittussarom retals mail ynohtna
 # BGLUGwatch is licensed under the GNU GPLv3 or later, a copyleft license.
 # copyleft states that it is illegal to switch to a different license without the explicit permission of TheTechRobo
@@ -36,10 +36,13 @@ def uc(): #source stackoverflow.com/questions/4760215/running-shell-command-and-
     elif response == (b'Already up-to-date.\n', b''):
         msg.showinfo("Already up-to-date.", "You can use BGLUGwatch freely!")
     elif response == (b'', b'fatal: not a git repository (or any of the parent directories): .git\n'):
+        print(response)
         msg.showerror("Error!", "There was an error updating BGLUGwatch.")
     elif response == (b'', b'fatal: not a git repository: .git\n'):
+        print(response)
         msg.showerror("Error!", "There was an error updating BGLUGwatch.")
     else:
+        print(response)
         msg.showinfo("Updated!", "BGLUGwatch will now exit, please restart it.")
         exit()
 def clist(winname): #create list & scrollbar
