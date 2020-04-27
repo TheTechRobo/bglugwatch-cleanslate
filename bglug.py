@@ -12,7 +12,7 @@ from tkinter import *
 import subprocess
 from sys import exit
 import webbrowser
-from tkinter.ttk import *
+from tkinter.ttk import * #so that all widgets use themes
 # set up window
 main = tkinter.Tk()
 menubar = Menu(main)
