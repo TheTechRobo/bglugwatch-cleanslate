@@ -153,10 +153,10 @@ TAB_CONTROL.pack(expand=1, fill="both")
 def moreinfomeeting():
     # create child window
     more = Toplevel()
-    more.title('Online Jitsi meeting 1st Tuesday of May')
+    more.title('Online Jitsi meeting May 5, 2020')
     # display message
     message = '''The next BGLUG meeting has been proposed:
-    Meet on Jitsi (open-source video chat) at: https://meet.jit.si/bglug on: 1st Tuesday of May @ 7pm.
+    Meet on Jitsi (open-source video chat) at: https://meet.jit.si/bglug on: May 5 @ 7pm.
     Topic: Features of Jitsi, presentations welcome! (Propose a presentation on the mailing list.)
     See you there!'''
     Label(more, text=message).pack()
@@ -307,5 +307,5 @@ menubar.add_cascade(label="Utilities", menu=utilmnu)
 main.config(menu=menubar)
 # show message on launch
 uc()
-msg.showinfo("Online meeting First Tuesday of May, 7pm", "There is a meeting this month, see more details by clicking `More info...' inside the `Next meeting' tab (the first one)")
+msg.showinfo("Online meeting May 5, 2020@7pm", "There is a meeting this month, see more details by clicking `More info...' inside the `Next meeting' tab (the first one)")
 main.mainloop()
