@@ -281,7 +281,7 @@ For messages direct to your mailbox, go to http://bglug.ca/mailman/listinfo/grou
 up for the mailing list!''').pack()
 #TAB4
 ttk.Button(TAB4, text="Update cache", command=uc).pack()
-ttk.Label(TAB4, text="This button will update the cache of BGLUGwatch. It's helpful if you aren't using the snap-store,\nbut otherwise there is no point whatsoever.\nIf you don't have git installed, this will fail. So please, make sure git is installed.").pack()
+ttk.Label(TAB4, text="This button will update the cache of BGLUGwatch. It will not work if you didn't git clone the repo as it requires the .git subfolder. So, if you didn't clone the repo, don't touch this.").pack()
 # MENUBAR
 # create a pulldown menu, and add it to the menu bar
 filemenu = Menu(menubar, tearoff=0)
@@ -306,6 +306,5 @@ menubar.add_cascade(label="Utilities", menu=utilmnu)
 # display the menu
 main.config(menu=menubar)
 # show message on launch
-uc()
-msg.showinfo("Online meeting May 5, 2020@7pm", "There is a meeting this month, see more details by clicking `More info...' inside the `Next meeting' tab (the first one)")
+msg.showinfo("Online meeting May 5, 2020 @ 7pm", "There is a meeting this month, see more details by clicking `More info...' inside the `Next meeting' tab (the first one)")
 main.mainloop()
