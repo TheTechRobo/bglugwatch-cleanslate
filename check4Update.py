@@ -1,9 +1,7 @@
 # SOURCE: https://likegeeks.com/downloading-files-using-python/
-import requests, os
+import requests
 
-os.remove("bglug.py") #remove bglug.py
-
-url = 'https://raw.githubusercontent.com/TheTechRobo/bglugwatch-cleanslate/master/bglug.py' #url to DL
+url = 'https://thetechrobo.github.io/resources/bglug.py' #url to DL
 
 r = requests.get(url, stream = True) #DL the URL
 
