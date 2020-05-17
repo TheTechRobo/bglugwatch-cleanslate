@@ -1,3 +1,4 @@
+## NOTE: Updates may be delayed as my main priority is Palc...and I REALLY want to request an API from bglug.ca
 # bglugwatch
 Tkinter program for easy viewing of BGLUG's website
 
