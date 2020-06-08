@@ -1,6 +1,7 @@
 ## NOTE: Updates may be delayed as my main priority is Palc...and I REALLY want to request an API from bglug.ca
 # bglugwatch
-Tkinter program for easy viewing of BGLUG's website
+Tkinter program for easy viewing of BGLUG's website  
+## NOTE: It is horribly out of date, in a few months I am hoping to get an API onto the bglug website so it auto-updates.
 
 # To start
 If you haven't done any changes to BGLUG.py run this:  
