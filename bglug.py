@@ -17,8 +17,13 @@ from tkinter.ttk import * #so that all widgets use themes
 main = tkinter.Tk()
 menubar = Menu(main)
 main.title("BGLUGwatch")
-s = ttk.Style()
-s.theme_use('clam')
+try:
+    from ttkthemes import ThemedStyle
+    s = ThemedStyle(main)
+    s.set_theme("elegance")
+except:
+    s = ttk.Style()
+    s.theme_use('clam')
 # DECLARING
 def uc(): #source stackoverflow.com/questions/4760215/running-shell-command-and-capturing-the-output/9266901#9266901
     msg.showinfo("Attempting to update...", "Please wait while git does its job.")
