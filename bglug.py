@@ -11,39 +11,34 @@ from tkinter import messagebox as msg
 from tkinter import *
 import subprocess
 from sys import exit
-import webbrowser
+import webbrowser #for opening links
 from tkinter.ttk import * #so that all widgets use themes
 # set up window
 main = tkinter.Tk()
 menubar = Menu(main)
 main.title("BGLUGwatch")
-try:
+try: #If user has ttkthemes installed
     from ttkthemes import ThemedStyle
     s = ThemedStyle(main)
-    s.set_theme("elegance")
-except:
+    s.set_theme("elegance") #use theme elegance
+except: #if the user doesn't have ttkthemes installed
     s = ttk.Style()
-    s.theme_use('clam')
+    s.theme_use('clam') #use a decent theme, but not as good as elegance
 # DECLARING
 def uc(): #source stackoverflow.com/questions/4760215/running-shell-command-and-capturing-the-output/9266901#9266901
     msg.showinfo("Attempting to update...", "Please wait while git does its job.")
     output = subprocess.Popen(["git pull"],stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True) #Prepare the git pull
     response = output.communicate() #run git pull and get the output
-    if response == (b'Already up to date.\n', None):
-        print("Already up to date.")
-        msg.showinfo("Already up to date.", "You can use BGLUGwatch freely!")
-    elif response == (b'Already up-to-date.\n', None):
-        print("Already up-to-date.")
-        msg.showinfo("Already up to date.", "You can use BGLUGwatch freely!")
-    elif response == (b'Already up to date.\n', b''):
-        print("Already up to date.")
-        msg.showinfo("Already up to date.", "You can use BGLUGwatch freely!!")
-    elif response == (b'Already up-to-date.\n', b''):
-        msg.showinfo("Already up-to-date.", "You can use BGLUGwatch freely!")
-    elif response == (b'', b'fatal: not a git repository (or any of the parent directories): .git\n'):
+    response, _ = response
+    response = response.decode("UTF-8")
+    if  'Already up to date' in response:
         print(response)
-        msg.showerror("Error!", "There was an error updating BGLUGwatch.")
-    elif response == (b'', b'fatal: not a git repository: .git\n'):
+        msg.showinfo("Already up to date.", "You can use BGLUGwatch freely!")
+    elif 'Already up-to-date' in response:
+        print(response)
+        msg.showinfo("Already up to date.", "You can use BGLUGwatch freely!")
+#if an error occurs
+    elif 'fatal: ' in response:
         print(response)
         msg.showerror("Error!", "There was an error updating BGLUGwatch.")
     else:
@@ -285,9 +280,9 @@ ttk.Label(TAB3, text='''FROM: LP
 SUBJECT: I hope everyone is well!
 "Hi all,..."''').pack()
 ttk.Button(TAB3, text="Read", command=ShowMessageOne).pack()
-ttk.Label(TAB3, text='''
-For messages direct to your mailbox, go to http://bglug.ca/mailman/listinfo/group_bglug.ca and sign
-up for the mailing list!''').pack()
+def openBROWSER():
+    webbrowser.open("http://bglug.ca/mailman/listinfo/group_bglug.ca")
+ttk.Button(TAB3, text='For messages direct to your mailbox, click here!', command=openBROWSER).pack()
 #TAB4
 ttk.Button(TAB4, text="Update cache", command=uc).pack()
 ttk.Label(TAB4, text="This button will update the cache of BGLUGwatch. \nIt will not work (and will say that it worked) if you didn't git clone the repo as it requires the .git subfolder. So, if you didn't clone the repo, don't touch this.").pack()
