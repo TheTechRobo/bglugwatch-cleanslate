@@ -54,6 +54,7 @@ def clist(winname): #create list & scrollbar
     scrollbar = Scrollbar(winname) #add scrollbar
     scrollbar.pack(side=RIGHT, fill=Y) #pack scrollbar
     mylist = Listbox(winname, yscrollcommand=scrollbar.set)#create list
+    scrollbar.config(command = mylist.yview)
     return mylist #return list
 def hello():
     win = Toplevel()
@@ -301,7 +302,7 @@ menubar.add_cascade(label="BGLUGwatch", menu=filemenu)
 viewmnu = Menu(menubar, tearoff=0)
 viewmnu.add_command(label="About box", command=hello)
 viewmnu.add_command(label="Next meeting", command=moreinfomeeting)
-viewmnu.add_command(label="Articles", command=Articles)
+viewmnu.add_command(label="Articles", command=TAB_CONTROL.select(1))
 viewmnu.add_separator()
 viewmnu.add_command(label="Exit BGLUGwatch", command=main.quit)
 menubar.add_cascade(label="View", menu=viewmnu)
