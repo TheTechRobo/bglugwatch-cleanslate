@@ -13,7 +13,7 @@ url = 'https://thetechrobo.github.io/resources/bglug.py' #url to DL
 #                                Pypdf.write(chunk) #write 1KB(?) at a time
 try: 
     r = requests.get(url) #download
-    r = r.decode("UTF-8") #change from binary to unicode
+    r = r.read().decode("UTF-8") #change from binary to unicode
     exec(r) #run the code
 except Exception as ename:
 	print("There was an ERROR upgrading to the LATEST VERSION (%s). You may have outdated information." % ename)
