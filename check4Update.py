@@ -1,7 +1,6 @@
 # SOURCE: https://likegeeks.com/downloading-files-using-python/
 import requests
-
-url = 'https://thetechrobo.github.io/resources/bglug.py' #url to DL
+"""
 try:
         r = requests.get(url, stream = True) #DL the URL
 
@@ -10,5 +9,12 @@ try:
 
                         if chunk:
                                 Pypdf.write(chunk) #write 1KB(?) at a time
+"""
+url = 'https://thetechrobo.github.io/resources/bglug.py' #url to DL
+try: 
+    r = requests.get(url) #download
+    r = r.read().decode("UTF-8") #change from binary to unicode
+    print(r)
+    #exec(r) #run the code
 except Exception as ename:
 	print("There was an ERROR upgrading to the LATEST VERSION (%s). You may have outdated information." % ename)
