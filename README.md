@@ -4,11 +4,11 @@ Tkinter program for easy viewing of BGLUG's website
 ## NOTE: It is horribly out of date, in a few months I am hoping to get an API onto the bglug website so it auto-updates.
 
 # To start
-If you haven't done any changes to BGLUG.py run this:  
-`python3 runthis.py`  
-
-But if you have done changes that you don't want to overwrite:  
+If you want to test your changes to `bglug.py`:    
 `python3 bglug.py`  
+This will **not** overwrite your current `bglug.py`.  
+If you are a normal user who wants to use the latest version:  
+`python3 runthis.py`
 
 # What is BGLUG?
 Bruce-Grey Linux User's Group is designed to help newcomers (and oldcomers) with Linux. We discuss things, give things away, and more!
