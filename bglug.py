@@ -313,4 +313,5 @@ menubar.add_cascade(label="Utilities", menu=utilmnu)
 main.config(menu=menubar)
 # show message on launch
 msg.showinfo("Thank you!", "Thank you all BGLUG members for a Great Meeting! See you next month!")
+msg.showerror("BGLUGwatch is out of date.", "Please don't seriously use it unless you have to.")
 mainloop()
